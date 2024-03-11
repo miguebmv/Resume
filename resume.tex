@@ -1,0 +1,164 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+\usepackage{etoolbox} % Necesario para manipular listas
+\usepackage{hyperref} % Para incluir links
+
+%----------------------------------------------------------------------------
+% Para quitar la numeracion de las paginas:
+\pagestyle{empty}
+
+%Para evitar que se corten las palabras cuando la oracion es larga:
+\usepackage{ragged2e}
+\usepackage[nobabel]{babel}
+
+% Uso este paquete para poder tratar columnas
+\usepackage{multicol}
+
+
+%----------------------------------------------------------------------------
+% Comando para los titulos de las la educacion
+\newcommand{\EducationSection}[6]{%
+    \textbf{#1}, \textit{#2}, #3 \hfill #4 \\
+    #5 \hfill #6
+}
+
+%Comando para crear seccion con lineas
+\newcommand{\seccion}[1]{%
+        \raggedright\rule{\linewidth}{0.1pt}
+        \vspace{-2.7 em}
+        \section*{\large #1}
+        \vspace{-1.5em  }
+        \rule{\linewidth}{0.1pt}
+}
+%-------------------------------------------------------
+%Comando para crear lista en cursos relevantes
+\newcommand{\Courses}[1]{%
+    \begin{multicols}{2} % Dos columnas
+    \begin{itemize}
+    \renewcommand*{\do}[1]{\item ##1\vspace{-0.8em}} % Definimos el formato de los elementos y ajustamos el espacio
+    \docsvlist{#1} % Procesamos la lista
+    \end{itemize}
+    \end{multicols}  
+}
+%El codigo a continuacion se usaria para poner lista en vertical de los cursos, no dos columnas
+%\newcommand{\Courses}[1]{%
+%    \begin{itemize}
+%    \renewcommand*{\do}[1]{\item ##1\vspace{-0.8em}} % Definimos el %formato de los elementos y ajustamos el espacio
+%    \docsvlist{#1} % Procesamos la lista
+%    \end{itemize}    
+%}
+%-------------------------------------------------------
+% Comando para apartado Experiencia profesional
+\newcommand{\Experience}[7]{%
+    \begin{minipage}[t]{\linewidth} % Primeros 4 parámetros en una línea
+        \textbf{#1} \! #2, \textit{#3} \hfill #4 \\
+        \vspace{-1 em} % Reducir el espacio entre la primera línea y la segunda
+    \end{minipage}
+    \begin{minipage}[t]{\linewidth} % Siguientes 2 parámetros en una línea
+        #5  \textit{#6} \\
+        \vspace{-1 em}
+    \end{minipage}
+    \begin{minipage}[t]{\linewidth} % Último parámetro como lista de elementos
+        \begin{itemize}
+        \renewcommand*{\do}[1]{\item ##1\vspace{-1 em}} % Definimos el formato de los elementos y ajustamos el espacio
+        \docsvlist{#7} % Procesamos la lista
+        \vspace{1.5 em}
+        \end{itemize}
+    \end{minipage}
+}
+
+% Comando para apartado Leadership And Involvement
+\newcommand{\Leader}[6]{%
+    \begin{minipage}[t]{\linewidth} % Primeros 4 parámetros en una línea
+        \textbf{#1} \! #2, \textit{#3} \hfill #4 \\
+        \vspace{-1 em} % Reducir el espacio entre la primera línea y la segunda
+    \end{minipage}
+    \begin{minipage}[t]{\linewidth} % Siguientes 2 parámetros en una línea
+        \textit{#5} \\
+        \vspace{-1 em}
+    \end{minipage}
+    \begin{minipage}[t]{\linewidth} % Último parámetro como lista de elementos
+        \begin{itemize}
+        \renewcommand*{\do}[1]{\item ##1\vspace{-1 em}} % Definimos el formato de los elementos y ajustamos el espacio
+        \docsvlist{#6} % Procesamos la lista
+        \vspace{1.5 em}
+        \end{itemize}
+    \end{minipage}
+}
+
+%Comando para las skills
+\newcommand{\skill}[2]{%
+    \textbf{#1:} #2
+    \par
+}
+
+
+
+%----------------------------------------------------------------------------
+% Adjust margins
+\geometry{
+    left=0.5in,     % Margen izquierdo
+    right=0.5in,    % Margen derecho
+    top=0.35in,      % Margen superior
+    bottom=0.3in    % Margen inferior
+}
+%----------------------------------------------------------------------------
+
+\begin{document}
+%Para evitar que se corten las palabras cuando la oracion es larga:
+\RaggedRight
+%----------------------------
+% CABECERA
+{\centering
+\Large\textbf{MIGUEL ANGEL BRAVO MARTINEZ DEL VALLE}\par
+\smallskip
+\normalsize % Cambia al tamaño de fuente pequeño
+mbravomartinez0754@sdsu.edu \quad\textbar\quad (513) 291-9795 \quad\textbar\quad 4645 63rd St, San Diego, CA 92115 \quad\textbar\quad \href{https://www.linkedin.com/in/miguel-angel-bravo/}{LinkedIn}\par
+\smallskip
+}
+
+
+
+%-----------------------------
+% EDUCATION SECTION
+\seccion{EDUCATION}
+\EducationSection{San Diego State University}{College of Arts and Letters}{San Diego}{August\ 2023 -\ Present}{Master's Program in Big Data Analytics}{GPA: 3.9}
+
+\EducationSection{Miami University}{College of Engineering and Computing}{Oxford, Ohio}{August\ 2022 - May\ 2023}{Foreign Exchange Program}{GPA: 3.84}
+
+\EducationSection{University of Malága}{Málaga}{Spain}{September\ 2018 - May\ 2023}{Degree in Electronics, Robotics and Mechatronics Engineering}{GPA: 7.8/10}
+
+\textbf{Honors:} ISEP Scholarship, Honorary Scholarship
+
+%-----------------------
+% RELEVANT COURSEWORK
+\seccion{RELEVANT COURSEWORK}
+\vspace{-2em}
+\Courses{Artificial Intelligence, Data Driven Security Java, {Fundamentals, Coding and Problem Solving with Java}, Web Application Programming}
+
+%-----------------------
+% PROFESSIONAL EXPERIENCE
+\vspace{-1.5em}
+\seccion{PROFESSIONAL EXPERIENCE}
+\Experience{CodeGPT - AI4Business,}{San Diego State University}{CA}{January 2024 - Present}{Research Assistant}{}{{Conducting a literature review to identify and evaluate the latest pre-training techniques for programming languages and natural languages, informing the integration process into the encoding methodology of the Code Search project}, {Utilizing pre-trained models like CodeBERT, GraphCodeBERT, or UniXCoder to enhance encoding efficiency and effectiveness for code search tasks}, {Integrating advanced pre-training techniques from Large Language Models (LLMs) to enhance semantic understanding and search performance, while continually integrating latest advancements from ongoing literature review.}}
+\Experience{Center for Information Convergence and Strategy,}{San Diego State University}{CA}{August 2023 - Present}{Research Assistant}{}{{Conducting a study on nutrient dynamics in agricultural watersheds using the Tri-Space approach to analyze spatiotemporal data from the Agricultural Catchments Programme dataset in Ireland.},{Developing a comprehensive multivariate and multitemporal analysis, emphasizing correlations among variables, particularly chemical parameters, to understand nutrient dynamics and eutrophication in the watershed},{Handling and cleaning multivariable and multitemporal data with R to ensure their integrity and reliability in advanced analyses}}
+\Experience{HorstSort II - Smart Campus,}{University of Málaga}{Spain}{March 2022 - June 2022}{Engineering Intern}{}{{Lead the integration of IoT technology into the Science Teaching Garden, enabling real-time monitoring of weather conditions and environmental parameters crucial for crop management and plant health},{Developed and implemented a comprehensive IoT device utilizing ESP8266 to collect and transmit data wirelessly, ensuring efficient and accurate monitoring of temperature, humidity, and light levels within the garden environment.},{Designed and deployed MQTT-based control systems for seamless data communication and remote monitoring of garden conditions.},{Integrated Telegram as a user interface through NodeRed, enhancing accessibility and usability of the monitoring system, enabling users to receive real-time updates and control garden actuators remotely with ease}}
+
+
+%-----------------------
+% LEADERSHIP AND INVOLVEMENT
+\vspace{-1em}
+\seccion{LEADERSHIP AND INVOLVEMENT}
+\Leader{Final Thesis on Project HortSost II,}{University of Málaga}{Spain}{March 2022 - June 2022 }{Author}{{Created a research paper with objectives, research observations, process methods, and conclusions on project results}, {Elaborated a presentation and defense of my thesis to be presented to the examining board.}}
+\Leader{EF Academy Study Abroad,}{Oxford}{United Kingdom}{July 2019 - August 2019}{Exchange Student}{Reinforced my English grammar and composition by attending an intensive English immersion course}
+\seccion{RELEVANT SKILLS}
+\skill{Languages}{Spanish (Native), English (Advanced)}
+\skill{Programming}{C++, Java, ROS, NodeRed, R, Python, HTML, SQL, MatLab, JavaScript}
+\skill{Technical Skills}{Computer programming languages, Financial management, Writing}
+\skill{Interests}{Cryptocurrencies, Stock Market}
+\skill{Aptitudes}{Communication, Collaboration, Attention to Detail, Empathy, Multitasking, Positivity, Problem-Solving}
+
+
+
+\end{document}
